@@ -3,37 +3,67 @@
 <html lang="en">
 <head>
 	<title>Drumkit</title>
-	<link rel="stylesheet" type="text/css" href="../Javascript 30/Drumkit/static/cs/style.css">
+	<link rel="stylesheet" type="text/css" href="./static/css/style.css">
 </head>
 <body>
 	<div class="keys">
-		<div class="key">
-			
+		<div data-key="65" class="key">
+			<kbd>A</kbd>
+			<span class="sound">clap</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="83" class="key">
+			<kbd>S</kbd>
+			<span class="sound">hihat</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="68" class="key">
+			<kbd>D</kbd>
+			<span class="sound">kick</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="70" class="key">
+			<kbd>F</kbd>
+			<span class="sound">openhat</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="71" class="key">
+			<kbd>G</kbd>
+			<span class="sound">boom</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="72" class="key">
+			<kbd>H</kbd>
+			<span class="sound">ride</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="74" class="key">
+			<kbd>J</kbd>
+			<span class="sound">snare</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="75" class="key">
+			<kbd>K</kbd>
+			<span class="sound">tom</span>
 		</div>
-		<div class="key">
-			
+		<div data-key="76" class="key">
+			<kbd>L</kbd>
+			<span class="sound">tink</span>
 		</div>
 	</div>
+
+	<audio data-key="65" src="./static/sound/clap.wav"></audio>
+	<audio data-key="83" src="./static/sound/hihat.wav"></audio>
+	<audio data-key="68" src="./static/sound/kick.wav"></audio>
+	<audio data-key="70" src="./static/sound/openhat.wav"></audio>
+	<audio data-key="71" src="./static/sound/boom.wav"></audio>
+	<audio data-key="72" src="./static/sound/ride.wav"></audio>
+	<audio data-key="74" src="./static/sound/snare.wav"></audio>
+	<audio data-key="75" src="./static/sound/tom.wav"></audio>
+	<audio data-key="76" src="./static/sound/tink.wav"></audio>
+
+	<script>
+		window.addEventListener('keydown',function(e){
+			const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+			const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+			if(!audio) return;
+			audio.currentTime = 0;
+			audio.play();
+			key.classList.add('playing');
+		});
+	</script>
 </body>
 </html>
