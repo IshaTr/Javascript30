@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Array Cardio Day 2</title>
+</head>
+<body>
+
+    <h1>Look at the console</h1>
+    <script>
+
+    const people = [
+        {name: 'Wes', year: 1988},
+        {name: 'Kait', year: 1986},
+        {name: 'Irv', year: 1970},
+        {name: 'Lux', year: 2015}
+    ];
+
+    const comments = [
+        {text: 'Love this', Id: 523423 },
+        {text: 'Super good', Id: 823423 },
+        {text: 'You are the best', Id: 2039842 },
+        {text: 'Ramen is my fav food ever', Id: 123523 },
+        {text: 'Nice Nice Nice!', Id: 542328 }
+    ];
+
+    // some()
+    const isAdult = people.some(person => ((new Date()).
+        getFullYear()) - person.year >= 19 );
+    console.log({isAdult})
+
+    // every()
+    const allAdults = people.every(person => ((new Date()).
+        getFullYear()) - person.year >= 19 );
+    console.log({allAdults});
+
+    // find()
+    const comment = comments.find(comment => comment.Id === 823423);
+    console.log(comment);
+
+    // findIndex()
+    const index = comments.findIndex(comment => comment.id === 823423);
+    console.log(index);
+    const newComments = [
+        ...comments.slice(0, index),
+        ...comments.slice(index+1)
+    ];
+    </script>
+</body>
+</html>
